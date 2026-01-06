@@ -200,7 +200,7 @@ async def language_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def social_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update.message.reply_text(
-        "📱 Instagram: https://instagram.com/fitness_club_uz",
+        "📱 Instagram: Скоро / Soon / Tez orada",
         reply_markup=get_main_keyboard(user_id)
     )
 
@@ -383,4 +383,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
