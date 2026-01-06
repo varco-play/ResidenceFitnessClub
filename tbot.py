@@ -45,7 +45,7 @@ Residence Fitness Club — это новый, современный и комф
 Тренируйтесь с удовольствием и достигайте реальных результатов!
 
 ✨ Здоровый образ жизни начинается в Residence Fitness Club.''',
-        'contact_text': '📞 Контакты:\n\n👤 Администратор: Иван Иванов\n📱 Телефон: +998 90 123 45 67',
+        'contact_text': '📞 Контакты:\n\n✨ Residence Fitness Club\n📱 Телефон: +998997331515',
         'select_lang': '🌐 Выберите язык / Tilni tanlang / Select language:',
         'lang_changed': '✅ Язык изменен',
         'enter_name': '👤 Введите ваше имя и фамилию:',
@@ -83,7 +83,7 @@ Har bir mashg'ulot — bu o'zingizga qo'yilgan investitsiya.
 Natijani his qiling, formangizni o'zgartiring va o'zingizdan faxrlaning!
 
 ✨ Sog'lom hayot Residence Fitness Club'dan boshlanadi.''',
-        'contact_text': '📞 Kontaktlar:\n\n👤 Administrator: Ivan Ivanov\n📱 Telefon: +998 90 123 45 67',
+        'contact_text': '📞 Kontaktlar:\n\n✨ Residence Fitness Club\n📱 Telefon: +998997331515',
         'select_lang': '🌐 Выберите язык / Tilni tanlang / Select language:',
         'lang_changed': '✅ Til o\'zgartirildi',
         'enter_name': '👤 Ism va familiyangizni kiriting:',
@@ -119,7 +119,7 @@ Residence Fitness Club is a newly opened, modern and comfortable fitness destina
 
 Every workout is an investment in yourself.
 Feel the energy, see the results, and become your best version!''',
-        'contact_text': '📞 Contact:\n\n👤 Administrator: Ivan Ivanov\n📱 Phone: +998 90 123 45 67',
+        'contact_text': '📞 Contact:\n\n✨ Residence Fitness Club\n📱 Phone: +998997331515',
         'select_lang': '🌐 Выберите язык / Tilni tanlang / Select language:',
         'lang_changed': '✅ Language changed',
         'enter_name': '👤 Enter your full name:',
@@ -383,3 +383,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
