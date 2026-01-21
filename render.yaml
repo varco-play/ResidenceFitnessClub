@@ -1,6 +1,6 @@
 services:
-  - type: web
-    name: fitness-club-bot
+  - type: worker
+    name: residence-fitness-bot
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python tbot.py
