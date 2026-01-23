@@ -23,7 +23,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 
 if not BOT_TOKEN:
-    raise RuntimeError("❌ BOT_TOKEN Render Environment’da yo‘q!")
+    raise RuntimeError("❌ BOT_TOKEN Render Environment'da yo'q!")
 
 # ================= LOGGING =================
 logging.basicConfig(
@@ -45,7 +45,7 @@ TRANSLATIONS = {
         "address": "📍 Адрес",
         "language": "🌐 Язык",
         "social": "📱 Соцсети",
-        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00–23:00\n🏋️‍♂️ Тренировки\n🏊‍♀️ Бассейн\n🔥 Групповые занятия",
+        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00—23:00\n🏋️‍♂️ Тренировки\n🏊‍♀️ Бассейн\n🔥 Групповые занятия",
         "contact_text": "📞 Телефон: +998997331515",
         "select_lang": "🌐 Выберите язык:",
         "lang_changed": "✅ Язык изменен",
@@ -62,17 +62,17 @@ TRANSLATIONS = {
         "cancelled": "❌ Отменено"
     },
     "uz": {
-        "welcome": "👋 Fitness Club ga xush kelibsiz!\n\nBo‘limni tanlang:",
+        "welcome": "👋 Fitness Club ga xush kelibsiz!\n\nBo'limni tanlang:",
         "info": "ℹ️ Info",
         "booking": "📝 Ariza",
         "contact": "📞 Kontakt",
         "address": "📍 Manzil",
         "language": "🌐 Til",
         "social": "📱 Ijtimoiy",
-        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00–23:00\n🏋️‍♂️ Mashg‘ulotlar\n🏊‍♀️ Basseyn\n🔥 Guruh treninglar",
+        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00—23:00\n🏋️‍♂️ Mashg'ulotlar\n🏊‍♀️ Basseyn\n🔥 Guruh treninglar",
         "contact_text": "📞 Telefon: +998997331515",
         "select_lang": "🌐 Tilni tanlang:",
-        "lang_changed": "✅ Til o‘zgardi",
+        "lang_changed": "✅ Til o'zgardi",
         "enter_name": "👤 Ism va familiya:",
         "share_phone": "📱 Telefon raqam:",
         "select_service": "🏋️ Xizmatni tanlang:",
@@ -93,7 +93,7 @@ TRANSLATIONS = {
         "address": "📍 Address",
         "language": "🌐 Language",
         "social": "📱 Social",
-        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00–23:00\n🏋️ Training\n🏊 Pool\n🔥 Group classes",
+        "info_text": "💪 Residence Fitness Club\n\n⏰ 07:00—23:00\n🏋️ Training\n🏊 Pool\n🔥 Group classes",
         "contact_text": "📞 Phone: +998997331515",
         "select_lang": "🌐 Select language:",
         "lang_changed": "✅ Language changed",
@@ -159,7 +159,7 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif text == t(uid, "social"):
         await update.message.reply_text("📱 Instagram: coming soon", reply_markup=main_keyboard(uid))
     else:
-        await update.message.reply_text("❗ Menyudan tanlang.", reply_markup=main_keyboard(uid))
+        await update.message.reply_text("⚠ Menyudan tanlang.", reply_markup=main_keyboard(uid))
 
 # ============== BOOKING FLOW ==============
 async def start_booking(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -227,7 +227,8 @@ def main():
     app.add_handler(conv)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_handler))
 
-    print("✅ Bot ishga tushdi")
+    logger.info("✅ Bot ishga tushdi")
+    print("✅ Bot running on Render")
     app.run_polling()
 
 if __name__ == "__main__":
