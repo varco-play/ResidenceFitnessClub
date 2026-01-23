@@ -1,125 +1,164 @@
-# 🏋️ Residence Fitness Club Telegram Bot
+# Fitness Club Telegram Bot 🏋️
 
-Fitness klub uchun ko'p tilli Telegram bot (Rus, O'zbek, Ingliz).
+A multi-language Telegram bot for fitness club management with booking system.
 
-## 🌟 Xususiyatlar
+## Features ✨
 
-- ✅ 3 til: Русский, O'zbekcha, English
-- ✅ Klub haqida ma'lumot
-- ✅ Ariza yuborish tizimi
-- ✅ Lokatsiya ko'rsatish
-- ✅ Admin uchun bildirishnomalar
-- ✅ Inline tugmalar bilan holat boshqaruvi
+- 🌐 Multi-language support (Russian, Uzbek, English)
+- 📝 Booking system with admin notifications
+- 📍 Location sharing
+- 👥 User-friendly keyboard interface
+- 📱 Contact sharing capability
 
-## 📋 Talablar
+## Quick Deploy to Render 🚀
 
-- Python 3.8+
-- python-telegram-bot 20.7
+### Step 1: Get Your Credentials
 
-## ⚙️ O'rnatish
+1. **Get Bot Token from BotFather:**
+   - Open Telegram and search for `@BotFather`
+   - Send `/newbot` and follow instructions
+   - Copy the token (format: `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
 
-### 1. Repozitoriyani klonlash
+2. **Get Your Admin ID:**
+   - Search for `@userinfobot` on Telegram
+   - Send `/start`
+   - Copy your ID (format: `123456789`)
 
-```bash
-git clone https://github.com/varco-play/ResidenceFitnessClub.git
-cd ResidenceFitnessClub
-```
+### Step 2: Deploy to Render
 
-### 2. Virtual environment yaratish (ixtiyoriy)
+1. **Fork or Upload to GitHub:**
+   - Create a new repository on GitHub
+   - Upload all these files to your repository
 
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# yoki
-venv\Scripts\activate  # Windows
-```
+2. **Connect to Render:**
+   - Go to [render.com](https://render.com) and sign up
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Select your repository
 
-### 3. Kutubxonalarni o'rnatish
+3. **Configure Service:**
+   - **Name:** fitness-telegram-bot (or your choice)
+   - **Region:** Select closest to you
+   - **Branch:** main
+   - **Runtime:** Python 3
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `python tbot.py`
+   - **Instance Type:** Free
 
-```bash
-pip install -r requirements.txt
-```
+4. **Add Environment Variables:**
+   
+   Click "Add Environment Variable" and add these two:
+   
+   - **Key:** `BOT_TOKEN`  
+     **Value:** Your token from BotFather
+   
+   - **Key:** `ADMIN_ID`  
+     **Value:** Your Telegram user ID
 
-### 4. Konfiguratsiya
+5. **Deploy:**
+   - Click "Create Web Service"
+   - Wait 2-5 minutes for deployment
+   - Check logs for "✅ Bot running on Render"
 
-`config.py` fayl yarating va quyidagilarni kiriting:
+### Step 3: Test Your Bot
 
+1. Open Telegram
+2. Search for your bot username
+3. Send `/start`
+4. Test all menu options
+
+## Commands 💬
+
+- `/start` - Start the bot and show main menu
+- `/cancel` - Cancel current booking process
+
+## Menu Options 📋
+
+- **ℹ️ Info** - View club information
+- **📝 Booking** - Make a new booking
+- **📞 Contact** - Get contact information
+- **📍 Address** - View location on map
+- **🌐 Language** - Change language
+- **📱 Social** - Social media links
+
+## Booking Flow 📝
+
+1. User clicks "📝 Booking"
+2. Enters full name
+3. Shares phone number
+4. Selects service type
+5. Admin receives notification
+
+## Customization 🎨
+
+### Change Club Information
+
+Edit in `tbot.py`:
 ```python
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-ADMIN_ID = YOUR_TELEGRAM_ID
+"info_text": "💪 Your Fitness Club Name\n\n⏰ Your Hours\n..."
+"contact_text": "📞 Phone: +998xxxxxxxxx"
 ```
 
-**Bot token olish:**
-1. [@BotFather](https://t.me/BotFather) ga murojaat qiling
-2. `/newbot` buyrug'ini yuboring
-3. Bot nomini kiriting
-4. Token oling
+### Change Location
 
-**Admin ID olish:**
-1. [@userinfobot](https://t.me/userinfobot) ga `/start` yuboring
-2. O'z ID'ingizni ko'ring
-
-### 5. Botni ishga tushirish
-
-```bash
-python bot.py
+Edit coordinates in `tbot.py`:
+```python
+await update.message.reply_location(41.3697283, 69.2723819)
 ```
 
-Terminal'da ko'rinadi: `Bot ishga tushdi...`
+### Add More Languages
 
-## 🚀 Deploy qilish
+Add new language in `TRANSLATIONS` dictionary in `tbot.py`.
 
-### PythonAnywhere (Bepul)
+## Troubleshooting 🔧
 
-1. [pythonanywhere.com](https://pythonanywhere.com) ro'yxatdan o'ting
-2. Console → Bash:
-```bash
-git clone https://github.com/varco-play/ResidenceFitnessClub.git
-cd ResidenceFitnessClub
-pip install -r requirements.txt --user
+### Bot not responding?
+- Check Render logs for errors
+- Verify `BOT_TOKEN` is correct
+- Ensure bot is not running elsewhere
+
+### Admin not receiving bookings?
+- Verify `ADMIN_ID` is correct
+- Start a conversation with bot first
+
+### Deployment failed?
+- Check all files are uploaded
+- Verify `requirements.txt` exists
+- Review build logs in Render
+
+## Local Development 💻
+
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Create `.env` file:
+   ```
+   BOT_TOKEN=your_token_here
+   ADMIN_ID=your_id_here
+   ```
+4. Run: `python tbot.py`
+
+## File Structure 📁
+
 ```
-3. `config.py` yarating
-4. Botni ishga tushiring: `python bot.py`
-
-### Render.com
-
-1. GitHub repository ulang
-2. New → Background Worker
-3. Build Command: `pip install -r requirements.txt`
-4. Start Command: `python bot.py`
-5. Environment Variables'ga `BOT_TOKEN` va `ADMIN_ID` qo'shing
-
-## 📱 Bot buyruqlari
-
-- `/start` - Botni ishga tushirish
-- `/cancel` - Ariza yuborishni bekor qilish
-
-## 🗂️ Fayl strukturasi
-
-```
-ResidenceFitnessClub/
-│
-├── bot.py              # Asosiy bot kodi
-├── config.py           # Maxfiy sozlamalar (gitignore)
-├── requirements.txt    # Python kutubxonalar
-├── .gitignore          # Git ignore fayllar
-└── README.md           # Loyiha haqida
+.
+├── tbot.py              # Main bot code
+├── requirements.txt     # Python dependencies
+├── render.yaml          # Render configuration
+├── .gitignore          # Git ignore rules
+└── README.md           # This file
 ```
 
-## 🔒 Xavfsizlik
+## Support 💬
 
-- ⚠️ `config.py` faylini **hech qachon GitHub'ga joylashtirmang!**
-- ⚠️ `.gitignore` da `config.py` borligiga ishonch hosil qiling
-- ⚠️ Bot tokenni hech kimga bermang
+For issues or questions:
+- Check Render logs first
+- Review Telegram Bot API documentation
+- Ensure all environment variables are set correctly
 
-## 📞 Kontakt
+## License 📄
 
-Savollar bo'lsa, issue oching yoki admin bilan bog'laning.
-
-## 📄 Litsenziya
-
-MIT License
+This project is open source and available for modification.
 
 ---
 
-Made with ❤️ for Residence Fitness Club
+**Made with ❤️ for Residence Fitness Club**
